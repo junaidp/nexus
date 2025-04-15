@@ -1,0 +1,114 @@
+/* App-specific styles */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Add animation for section transitions */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for children elements */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-md transition duration-300;
+}
+
+.btn-secondary {
+  @apply bg-transparent hover:bg-white hover:text-indigo-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white transition duration-300;
+}
+
+/* Service card hover effect */
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .mb-16 {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Touch-friendly adjustments for mobile */
+@media (max-width: 640px) {
+  button, 
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  input, 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevent zoom on focus in iOS */
+  }
+}
+
+/* Improve form accessibility */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* Add smooth transition for navbar */
+nav {
+  transition: all 0.3s ease;
+}
+
+/* Improve contrast for accessibility */
+.text-gray-400 {
+  color: #6b7280;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
